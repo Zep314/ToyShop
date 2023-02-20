@@ -5,16 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fb9b3b0-2a7e-4fc9-900f-9855229e9424" name="Changes" comment="java begin...">
-      <change afterPath="$PROJECT_DIR$/src/model/Child.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/ChildStream.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/ToyStream.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/LoadChildFromCSV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/LoadToysFromCSV.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Toy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Toy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Child.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ChildStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ChildStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ToyStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ToyStream.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tak01_log.txt.0" beforeDir="false" afterPath="$PROJECT_DIR$/tak01_log.txt.0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tak01_log.txt.1" beforeDir="false" afterPath="$PROJECT_DIR$/tak01_log.txt.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tak01_log.txt.2" beforeDir="false" afterPath="$PROJECT_DIR$/tak01_log.txt.2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tak01_log.txt.3" beforeDir="false" afterPath="$PROJECT_DIR$/tak01_log.txt.3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tak01_log.txt.4" beforeDir="false" afterPath="$PROJECT_DIR$/tak01_log.txt.4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/toys.csv" beforeDir="false" afterPath="$PROJECT_DIR$/toys.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -16,7 +16,7 @@ public class ChildStream implements Iterator<Child>{
         list.add(child);
     }
 
-    public void restIndex() { this.index = 0; }
+    public void resetIndex() { this.index = 0; }
     public int size() { return this.list.size(); }
 
     @Override
@@ -26,6 +26,21 @@ public class ChildStream implements Iterator<Child>{
     @Override
     public Child next() {
         return this.list.get(this.index++);
+    }
+
+    public void setPrize(Integer id, String prize) {
+        this.list.get(id).setPrize(prize);
+    }
+
+    public Child getChild(Integer index) { return this.list.get(index); }
+    public void removeChild(Integer id) {
+        this.list.remove(this.getChild(id));
+    }
+
+    public Child popChild(Integer id) {
+        Child temp = this.getChild(id);
+        this.list.remove(this.getChild(id));
+        return temp;
     }
 
 }

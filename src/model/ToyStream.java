@@ -16,8 +16,10 @@ public class ToyStream implements Iterator<Toy> {
         list.add(toy);
     }
 
-    public void restIndex() { this.index = 0; }
+    public void resetIndex() { this.index = 0; }
     public int size() { return this.list.size(); }
+
+    public Toy getToy(Integer index) { return this.list.get(index); }
 
     @Override
     public boolean hasNext() {
@@ -27,5 +29,15 @@ public class ToyStream implements Iterator<Toy> {
     @Override
     public Toy next() {
         return this.list.get(this.index++);
+    }
+
+    public void removeToy(Integer id) {
+        if (this.size() > 0) {
+            if (this.list.get(id).getAmount() > 1) {
+                this.list.get(id).setAmount(this.list.get(id).getAmount() - 1);
+            } else {
+                this.list.remove(this.getToy(id));
+            }
+        }
     }
 }

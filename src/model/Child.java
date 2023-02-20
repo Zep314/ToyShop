@@ -18,7 +18,7 @@ public class Child {
     public String getPrize() { return (this.prize != null) ? this.prize : ""; }
 
     public void setName(String name) { this.name = name; }
-    public void setPrize(String name) { this.prize = prize; }
+    public void setPrize(String prize) { this.prize = prize; }
 
     @Override
     public String toString() {
