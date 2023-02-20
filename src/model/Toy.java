@@ -1,7 +1,7 @@
 package model;
 
 public class Toy {
-    private static Integer id = 0;
+    protected Integer id = 0;
     protected String name = null;
     protected Integer amount = null;
     protected Float chance = null;
@@ -17,7 +17,7 @@ public class Toy {
                String name,
                Integer amount,
                Float chance) {
-        Toy.id = id;
+        this.id = id;
         this.name = name;
         this.amount = amount;
         this.chance = chance;
@@ -28,6 +28,7 @@ public class Toy {
     public  Integer getAmount() { return this.amount; }
     public Float getChance() { return this.chance; }
 
+    public void setId(Integer id) { this.id = id; }
     public void setName(String name) { this.name = name; }
     public void setAmount(Integer amount) { this.amount = amount; }
     public void setChance(Float chance) { this.chance = chance; }
