@@ -7,6 +7,7 @@ import model.ToyStream;
 
 import java.util.logging.Logger;
 
+// Класс - вбювер. Собраны методы отображения информации и взаимодействия с пользователем
 public class View {
     private final Logger log;
     public View(Logger log) {
@@ -23,8 +24,8 @@ public class View {
         System.out.println("Программа завершена.");
     }
 
-    public void printAllToys(ToyStream stream) {
-        Toy toy = new Toy();
+    public void printAllToys(ToyStream stream) {  // Вывод на печать всего списка игрушек
+        Toy toy;
         stream.resetIndex();
         System.out.println("| ID |        Наименование        |Количество|   Вес  |");
         System.out.printf("+%s+%s+%s+%s+%n"
@@ -46,10 +47,10 @@ public class View {
 
     public void printf(String string) {
         System.out.printf(string);
-    }
+    }  // Просто для печати, чтобы все было во вьювере
 
-    public void printAllChampions(ChildStream stream) {
-        Child child = new Child();
+    public void printAllChampions(ChildStream stream) {  // Вывод на печать списка детей - призеров
+        Child child;
         System.out.println("|      Имя      |      Приз     |");
         System.out.printf("+%s+%s+%n"
                 , "-".repeat(15)
@@ -57,7 +58,7 @@ public class View {
         );
         while (stream.hasNext()) {
             child = stream.next();
-            if (!child.getPrize().isEmpty()) {
+            if (!child.getPrize().isEmpty()) {  // Определяем выиграл приз, или нет
                 System.out.printf("|%15s|%15s|%n"
                         , child.getName()
                         , child.getPrize()

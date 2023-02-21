@@ -1,17 +1,16 @@
 package controller;
 
-import model.Child;
-import model.ChildStream;
-import util.LoadToysFromCSV;
-import util.LoadChildFromCSV;
-import view.View;
-
 import java.io.IOException;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
+import model.ChildStream;
 import model.ToyStream;
-
+import util.LoadToysFromCSV;
+import util.LoadChildFromCSV;
+import util.SaveChildToCSV;
+import util.Settings;
+import view.View;
 
 public class Controller {
     private final Logger log = Logger.getLogger(Controller.class.getName());
@@ -24,31 +23,31 @@ public class Controller {
             LogManager.getLogManager().readConfiguration( // берем конфиг для логов
                     Controller.class.getResourceAsStream("../log.config"));
         } catch (IOException e) {  // печаль, беда...
-            System.err.println("Could not setup logger configuration: " + e.toString());
+            System.err.println("Could not setup logger configuration: " + e);
         }
     }
 
     public void lottery() {
-        Child child = new Child();
         while ((this.childStream.size() > 0) && (this.toysStream.size() > 0)) {
             // child = this.childStream.getChild();
             Integer indexChild = (int)(Math.random() * this.childStream.size());
             // Вбираем приз (id игрушки)
-            Integer toyIndex = (int)(Math.random() * toysStream.size());
+            Integer toyIndex = (int)(Math.random() * this.toysStream.size());
             // Испытываем удачу для текущего ребенка
-            if (toysStream.getToy(toyIndex).getChance() > Math.random()) {
+            if (this.toysStream.getToy(toyIndex).getChance() > Math.random()) {
                 this.championsStream.addChild(this.childStream.popChild(indexChild));
-                this.championsStream.setPrize(this.championsStream.size() -1,toysStream.getToy(toyIndex).getName());
+                this.championsStream.setPrize(this.championsStream.size() -1,this.toysStream.getToy(toyIndex).getName());
                 this.toysStream.removeToy(toyIndex);
+            } else {
+                this.childStream.removeChild(indexChild);
             }
-            this.childStream.removeChild(indexChild);
         }
     }
 
     public void run() {
         view.info();
-        this.toysStream = LoadToysFromCSV.load(log,"toys.csv", ';');
-        this.childStream = LoadChildFromCSV.load(log,"childs.csv", ';');
+        this.toysStream = LoadToysFromCSV.load(log,Settings.toysCSV, ';');
+        this.childStream = LoadChildFromCSV.load(log,Settings.childCSV, ';');
 
         view.printf("%n");
         view.printf("Исходное количество призов:%n");
@@ -58,6 +57,8 @@ public class Controller {
 
         view.printf("%nПобедители:%n");
         view.printAllChampions(this.championsStream);
+
+        SaveChildToCSV.save(log,Settings.winnersCSV,';',this.championsStream);
 
         view.printf("%nОстаток призов:%n");
         view.printAllToys(this.toysStream);
